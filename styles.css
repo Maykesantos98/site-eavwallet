@@ -458,9 +458,10 @@ section {
 }
 
 .eyebrow.muted {
-  color: #086e3f;
-  background: rgba(0, 240, 138, 0.18);
-  border-color: rgba(0, 240, 138, 0.4);
+  color: #073921;
+  background: rgba(0, 240, 138, 0.22);
+  border-color: rgba(0, 200, 110, 0.55);
+  font-weight: 900;
 }
 
 .subscribed-toast {

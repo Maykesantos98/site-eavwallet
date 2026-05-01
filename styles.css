@@ -470,10 +470,30 @@ section {
   inset: 0;
   transform:
     perspective(1200px)
-    rotateX(calc(var(--tilt-x, 0deg) + var(--scroll-tilt-x, 0deg)))
-    rotateY(calc(var(--tilt-y, 0deg) + var(--scroll-tilt-y, 0deg)));
+    rotateX(calc(var(--tilt-x, 0deg) + var(--scroll-tilt-x, 0deg) + var(--auto-tilt-x, 0deg)))
+    rotateY(calc(var(--tilt-y, 0deg) + var(--scroll-tilt-y, 0deg) + var(--auto-tilt-y, 0deg)));
   transition: transform 220ms ease-out;
   will-change: transform;
+  animation: phoneStackSway 14s ease-in-out infinite;
+}
+
+@keyframes phoneStackSway {
+  0%, 100% { --auto-tilt-x: 0deg; --auto-tilt-y: 0deg; }
+  25%      { --auto-tilt-x: 2deg; --auto-tilt-y: -3deg; }
+  50%      { --auto-tilt-x: -1deg; --auto-tilt-y: 4deg; }
+  75%      { --auto-tilt-x: 3deg; --auto-tilt-y: 2deg; }
+}
+
+@property --auto-tilt-x {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+
+@property --auto-tilt-y {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
 }
 
 .phone {
@@ -2327,6 +2347,7 @@ section {
   .phone-side.top,
   .phone-side.bottom,
   .phone-main::after,
+  .phone-stack,
   .balance-card,
   .pix-card,
   .coin {

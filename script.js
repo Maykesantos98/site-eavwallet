@@ -141,45 +141,17 @@ if (heroVisual && isFinePointer) {
 }
 
 if (heroVisual && !isFinePointer) {
-  let touchActive = false;
-  let touchTimeout;
-
-  heroVisual.addEventListener(
-    "touchmove",
-    (event) => {
-      if (prefersReducedMotion.matches || !event.touches[0]) return;
-      const touch = event.touches[0];
-      const rect = heroVisual.getBoundingClientRect();
-      const x = (touch.clientX - rect.left) / rect.width - 0.5;
-      const y = (touch.clientY - rect.top) / rect.height - 0.5;
-      touchActive = true;
-      setHeroVar("--tilt-x", `${y * -10}deg`);
-      setHeroVar("--tilt-y", `${x * 10}deg`);
-      setHeroVar("--shift-x", `${x * 14}px`);
-      setHeroVar("--shift-y", `${y * 14}px`);
-      window.clearTimeout(touchTimeout);
-      touchTimeout = window.setTimeout(() => {
-        touchActive = false;
-        setHeroVar("--tilt-x", "0deg");
-        setHeroVar("--tilt-y", "0deg");
-        setHeroVar("--shift-x", "0px");
-        setHeroVar("--shift-y", "0px");
-      }, 1400);
-    },
-    { passive: true }
-  );
-
   function handleOrientation(event) {
-    if (prefersReducedMotion.matches || touchActive) return;
+    if (prefersReducedMotion.matches) return;
     const beta = event.beta;
     const gamma = event.gamma;
     if (beta === null || gamma === null) return;
-    const ny = Math.max(-1, Math.min(1, gamma / 30));
-    const nx = Math.max(-1, Math.min(1, (beta - 45) / 30));
-    setHeroVar("--tilt-x", `${nx * -6}deg`);
-    setHeroVar("--tilt-y", `${ny * 6}deg`);
-    setHeroVar("--shift-x", `${ny * 10}px`);
-    setHeroVar("--shift-y", `${nx * 10}px`);
+    const ny = Math.max(-1, Math.min(1, gamma / 35));
+    const nx = Math.max(-1, Math.min(1, (beta - 45) / 35));
+    setHeroVar("--tilt-x", `${nx * -4}deg`);
+    setHeroVar("--tilt-y", `${ny * 4}deg`);
+    setHeroVar("--shift-x", `${ny * 6}px`);
+    setHeroVar("--shift-y", `${nx * 6}px`);
   }
 
   function attachOrientation() {

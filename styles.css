@@ -458,9 +458,9 @@ section {
 }
 
 .eyebrow.muted {
-  color: #6dffb6;
-  background: rgba(0, 240, 138, 0.12);
-  border-color: rgba(0, 240, 138, 0.28);
+  color: #086e3f;
+  background: rgba(0, 240, 138, 0.18);
+  border-color: rgba(0, 240, 138, 0.4);
 }
 
 .subscribed-toast {
@@ -2286,7 +2286,16 @@ section {
   gap: 18px;
   overflow-x: auto;
   padding: 8px 4px 26px;
-  scrollbar-width: thin;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0, black 4%, black 96%, transparent 100%);
+          mask-image: linear-gradient(90deg, transparent 0, black 4%, black 96%, transparent 100%);
+}
+
+.screen-rail::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
 }
 
 .screen-card {

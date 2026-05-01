@@ -2358,6 +2358,42 @@ section {
   }
 }
 
+@media (max-width: 980px) {
+  .phone-stack {
+    transform: none !important;
+    animation: none !important;
+  }
+
+  .hero-visual::before {
+    animation: none;
+  }
+
+  .phone-main::after {
+    animation: none;
+    display: none;
+  }
+
+  .balance-card,
+  .pix-card {
+    animation: none !important;
+    transform: none !important;
+  }
+
+  .coin.btc,
+  .coin.eth,
+  .coin.sol {
+    animation: coinSoftFloat 6s ease-in-out infinite;
+  }
+
+  .coin.eth { animation-delay: -2s; }
+  .coin.sol { animation-delay: -4s; }
+
+  @keyframes coinSoftFloat {
+    0%, 100% { transform: translateY(0); }
+    50%      { transform: translateY(-8px); }
+  }
+}
+
 .mobile-backdrop {
   display: none;
 }

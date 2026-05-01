@@ -140,44 +140,7 @@ if (heroVisual && isFinePointer) {
   });
 }
 
-if (heroVisual && !isFinePointer) {
-  function handleOrientation(event) {
-    if (prefersReducedMotion.matches) return;
-    const beta = event.beta;
-    const gamma = event.gamma;
-    if (beta === null || gamma === null) return;
-    const ny = Math.max(-1, Math.min(1, gamma / 35));
-    const nx = Math.max(-1, Math.min(1, (beta - 45) / 35));
-    setHeroVar("--tilt-x", `${nx * -4}deg`);
-    setHeroVar("--tilt-y", `${ny * 4}deg`);
-    setHeroVar("--shift-x", `${ny * 6}px`);
-    setHeroVar("--shift-y", `${nx * 6}px`);
-  }
-
-  function attachOrientation() {
-    if (typeof DeviceOrientationEvent === "undefined") return;
-    const RequestPermission = DeviceOrientationEvent.requestPermission;
-    if (typeof RequestPermission === "function") {
-      const askOnce = () => {
-        document.removeEventListener("touchend", askOnce);
-        RequestPermission()
-          .then((state) => {
-            if (state === "granted") {
-              window.addEventListener("deviceorientation", handleOrientation);
-            }
-          })
-          .catch(() => {});
-      };
-      document.addEventListener("touchend", askOnce, { once: true });
-    } else {
-      window.addEventListener("deviceorientation", handleOrientation);
-    }
-  }
-
-  attachOrientation();
-}
-
-if (heroVisual) {
+if (heroVisual && isFinePointer) {
   let scrollTicking = false;
   function updateScrollTilt() {
     scrollTicking = false;

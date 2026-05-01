@@ -1,3 +1,60 @@
+const SUPPORTED_LANGS = ["pt", "en", "es"];
+
+function detectLang() {
+  const stored = localStorage.getItem("eav-lang");
+  if (stored && SUPPORTED_LANGS.includes(stored)) return stored;
+  const browser = (navigator.language || "pt").slice(0, 2);
+  return SUPPORTED_LANGS.includes(browser) ? browser : "pt";
+}
+
+function applyTranslations(dict) {
+  document.documentElement.lang = dict.__lang || "pt-BR";
+  document.querySelectorAll("[data-i18n]").forEach((el) => {
+    const key = el.getAttribute("data-i18n");
+    if (dict[key] !== undefined) el.innerHTML = dict[key];
+  });
+  document.querySelectorAll("[data-i18n-attr]").forEach((el) => {
+    const pairs = el.getAttribute("data-i18n-attr").split(";");
+    pairs.forEach((pair) => {
+      const [attr, key] = pair.split(":").map((s) => s.trim());
+      if (attr && key && dict[key] !== undefined) el.setAttribute(attr, dict[key]);
+    });
+  });
+}
+
+async function setupI18n() {
+  const initial = detectLang();
+  let dict = null;
+  try {
+    const res = await fetch("i18n.json");
+    const all = await res.json();
+    dict = all[initial];
+    if (!dict) return;
+    dict.__lang = { pt: "pt-BR", en: "en", es: "es" }[initial];
+    applyTranslations(dict);
+    window.__i18nAll = all;
+    window.__currentLang = initial;
+  } catch (err) {}
+
+  document.querySelectorAll("[data-lang-switch]").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const next = btn.getAttribute("data-lang-switch");
+      if (!SUPPORTED_LANGS.includes(next) || !window.__i18nAll) return;
+      localStorage.setItem("eav-lang", next);
+      const d = window.__i18nAll[next];
+      d.__lang = { pt: "pt-BR", en: "en", es: "es" }[next];
+      applyTranslations(d);
+      window.__currentLang = next;
+      document.querySelectorAll("[data-lang-switch]").forEach((b) => {
+        b.classList.toggle("is-active", b.getAttribute("data-lang-switch") === next);
+      });
+    });
+    btn.classList.toggle("is-active", btn.getAttribute("data-lang-switch") === initial);
+  });
+}
+
+setupI18n();
+
 const revealItems = document.querySelectorAll(".reveal");
 const animatedMoney = document.querySelectorAll(".count-money");
 const navGroups = document.querySelectorAll(".nav-group");
@@ -183,7 +240,13 @@ if (new URLSearchParams(window.location.search).get("subscribed") === "1") {
   const note = document.createElement("div");
   note.className = "subscribed-toast";
   note.setAttribute("role", "status");
-  note.innerHTML = '<i data-lucide="check-circle"></i> Você está na lista! Vamos avisar assim que abrir.';
+  const lang = detectLang();
+  const fallbackMsg = {
+    pt: "Você está na lista! Vamos avisar assim que abrir.",
+    en: "You're on the list! We'll let you know as soon as we open.",
+    es: "¡Estás en la lista! Te avisaremos en cuanto abramos.",
+  };
+  note.innerHTML = `<i data-lucide="check-circle"></i> ${fallbackMsg[lang] || fallbackMsg.pt}`;
   document.body.appendChild(note);
   if (window.lucide) window.lucide.createIcons();
   window.setTimeout(() => note.classList.add("is-visible"), 80);

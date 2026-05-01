@@ -1,4 +1,4 @@
-const CACHE = "eav-wallet-v1";
+const CACHE = "eav-wallet-v2";
 const ASSETS = [
   "./",
   "./index.html",
@@ -8,6 +8,8 @@ const ASSETS = [
   "./manifest.json",
   "./favicon.svg",
   "./og-image.jpg",
+  "./i18n.json",
+  "./fonts/InterVariable.woff2",
   "./wallet/logo.png",
   "./wallet/eav-token.png",
   "./wallet/eav-trade.jpg",

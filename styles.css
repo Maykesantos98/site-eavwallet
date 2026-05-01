@@ -1,3 +1,12 @@
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("fonts/InterVariable.woff2") format("woff2-variations"),
+       url("fonts/InterVariable.woff2") format("woff2");
+}
+
 :root {
   --bg: #08090d;
   --panel: #15171f;
@@ -69,6 +78,58 @@ input:focus-visible,
   top: 12px;
   outline: 3px solid #fff;
   outline-offset: 2px;
+}
+
+.lang-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  padding: 3px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.lang-switch button {
+  min-width: 38px;
+  height: 32px;
+  padding: 0 10px;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--muted);
+  font: inherit;
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition: background 180ms ease, color 180ms ease;
+}
+
+.lang-switch button:hover {
+  color: var(--text);
+}
+
+.lang-switch button.is-active {
+  background: var(--green);
+  color: #082316;
+}
+
+@media (max-width: 980px) {
+  .lang-switch:not(.lang-switch-mobile) {
+    display: none;
+  }
+  .lang-switch-mobile {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 6px;
+    padding: 6px;
+    margin-top: 6px;
+  }
+  .lang-switch-mobile button {
+    height: 44px;
+    font-size: 0.86rem;
+  }
 }
 
 .shell {

@@ -35,13 +35,8 @@
     <link rel="apple-touch-icon" href="wallet/eav-token.png" />
     <link rel="manifest" href="manifest.json" />
 
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
+    <!-- Fonts (self-hosted) -->
+    <link rel="preload" as="font" type="font/woff2" href="fonts/InterVariable.woff2" crossorigin />
     <link rel="stylesheet" href="styles.css" />
 
     <!-- Performance hints -->
@@ -83,7 +78,7 @@
     </script>
   </head>
   <body>
-    <a class="skip-link" href="#top">Pular para o conteúdo</a>
+    <a class="skip-link" href="#top" data-i18n="skip.content">Pular para o conteúdo</a>
     <header class="site-header">
       <nav class="nav shell" aria-label="Navegação principal">
         <a class="brand" href="#top" aria-label="EAV Wallet">
@@ -140,9 +135,14 @@
           <a href="#app">App</a>
         </div>
         <div class="nav-actions">
-          <a class="nav-login" href="#app">Ver demo</a>
+          <div class="lang-switch" role="group" aria-label="Idioma">
+            <button type="button" data-lang-switch="pt">PT</button>
+            <button type="button" data-lang-switch="en">EN</button>
+            <button type="button" data-lang-switch="es">ES</button>
+          </div>
+          <a class="nav-login" href="#app" data-i18n="nav.demo">Ver demo</a>
           <a class="nav-cta" href="#baixar">
-            <span>Entrar na lista</span>
+            <span data-i18n="nav.cta">Entrar na lista</span>
             <i data-lucide="arrow-up-right" aria-hidden="true"></i>
           </a>
           <button class="mobile-menu-button" type="button" aria-label="Abrir menu" aria-expanded="false" data-mobile-menu-button>
@@ -190,8 +190,13 @@
 
         <a class="mobile-cta" href="#baixar">
           <i data-lucide="mail-plus" aria-hidden="true"></i>
-          Entrar na lista de espera
+          <span data-i18n="nav.cta">Entrar na lista de espera</span>
         </a>
+        <div class="lang-switch lang-switch-mobile" role="group" aria-label="Idioma">
+          <button type="button" data-lang-switch="pt">Português</button>
+          <button type="button" data-lang-switch="en">English</button>
+          <button type="button" data-lang-switch="es">Español</button>
+        </div>
       </aside>
     </header>
 
@@ -201,10 +206,10 @@
           <div class="hero-copy reveal">
             <span class="eyebrow">
               <i data-lucide="shield-check" aria-hidden="true"></i>
-              Pré-lançamento oficial
+              <span data-i18n="hero.eyebrow">Pré-lançamento oficial</span>
             </span>
-            <h1>Sua carteira. Seu controle.</h1>
-            <p class="hero-lead">
+            <h1 data-i18n="hero.title">Sua carteira. Seu controle.</h1>
+            <p class="hero-lead" data-i18n="hero.lead">
               Controle real, cripto, cartão, PIX e conversões em uma carteira
               digital pensada para uso diário, com experiência premium desde o
               primeiro toque.
@@ -212,10 +217,10 @@
             <div class="hero-actions">
               <a class="button primary" href="#baixar">
                 <i data-lucide="mail-plus" aria-hidden="true"></i>
-                Entrar na lista
+                <span data-i18n="hero.cta.primary">Entrar na lista</span>
               </a>
               <a class="button secondary" href="#app">
-                Ver telas
+                <span data-i18n="hero.cta.secondary">Ver telas</span>
                 <i data-lucide="arrow-right" aria-hidden="true"></i>
               </a>
             </div>
@@ -228,16 +233,16 @@
             </div>
             <div class="trust-row" aria-label="Destaques">
               <div>
-                <strong>PIX</strong>
-                <span>envio e recebimento</span>
+                <strong data-i18n="trust.pix.title">PIX</strong>
+                <span data-i18n="trust.pix.desc">envio e recebimento</span>
               </div>
               <div>
-                <strong>BRL + cripto</strong>
-                <span>em uma carteira</span>
+                <strong data-i18n="trust.brl.title">BRL + cripto</strong>
+                <span data-i18n="trust.brl.desc">em uma carteira</span>
               </div>
               <div>
-                <strong>Cartão</strong>
-                <span>limites e segurança</span>
+                <strong data-i18n="trust.card.title">Cartão</strong>
+                <span data-i18n="trust.card.desc">limites e segurança</span>
               </div>
             </div>
           </div>
@@ -301,7 +306,7 @@
         <div class="shell">
           <div class="section-heading reveal">
             <span class="eyebrow muted">Produto</span>
-            <h2>Tudo que uma wallet profissional precisa mostrar rápido.</h2>
+            <h2 data-i18n="product.title">Tudo que uma wallet profissional precisa mostrar rápido.</h2>
           </div>
           <div class="feature-grid">
             <article class="feature-card reveal">
@@ -400,9 +405,9 @@
           <div class="token-copy reveal">
             <span class="eyebrow token-eyebrow">
               <i data-lucide="coins" aria-hidden="true"></i>
-              Token EAV7
+              <span data-i18n="token.eyebrow">Token EAV7</span>
             </span>
-            <h2>A moeda do ecossistema EAV.</h2>
+            <h2 data-i18n="token.title">A moeda do ecossistema EAV.</h2>
             <p>
               O token <strong>EAV7</strong> foi projetado para combinar regulação,
               inteligência artificial, descentralização e deflação automática —
@@ -467,7 +472,7 @@
               <i data-lucide="candlestick-chart" aria-hidden="true"></i>
               Para traders
             </span>
-            <h2>Mercado cripto com leitura rápida.</h2>
+            <h2 data-i18n="traders.title">Mercado cripto com leitura rápida.</h2>
             <p>
               A tela Explorar foi pensada para quem precisa acompanhar ativos,
               variações e destaques do dia sem sair da carteira.
@@ -589,7 +594,7 @@
               <i data-lucide="lock-keyhole" aria-hidden="true"></i>
               Segurança prevista
             </span>
-            <h2>Confiança antes do lançamento.</h2>
+            <h2 data-i18n="security.title">Confiança antes do lançamento.</h2>
             <p>
               Como a EAV Wallet ainda não foi lançada, a página comunica o que
               está sendo preparado sem prometer auditorias, certificações ou
@@ -639,7 +644,7 @@
         <div class="shell">
           <div class="section-heading centered reveal">
             <span class="eyebrow muted">Experiência do app</span>
-            <h2>Conheça as principais telas da EAV Wallet.</h2>
+            <h2 data-i18n="app.title">Conheça as principais telas da EAV Wallet.</h2>
           </div>
           <div class="screen-rail" aria-label="Galeria de telas da EAV Wallet">
             <figure class="screen-card reveal"><img src="wallet/1.jpeg" alt="Carteira" width="709" height="1600" loading="lazy" decoding="async" /></figure>
@@ -659,8 +664,8 @@
               <i data-lucide="sparkles" aria-hidden="true"></i>
               Pré-lançamento
             </span>
-            <h2>Entre na lista antes da abertura oficial.</h2>
-            <p>
+            <h2 data-i18n="download.title">Entre na lista antes da abertura oficial.</h2>
+            <p data-i18n="download.lead">
               O app ainda não está nas lojas. Cadastre seu e-mail para receber
               novidades, abertura de testes e o link oficial quando estiver
               disponível.
@@ -696,15 +701,15 @@
               </div>
               <p>O QR Code oficial será ativado no lançamento do app.</p>
             </div>
-            <label for="email">Receba o acesso antecipado</label>
+            <label for="email" data-i18n="form.label">Receba o acesso antecipado</label>
             <div class="input-row">
-              <input id="email" name="email" type="email" placeholder="seu@email.com" required />
+              <input id="email" name="email" type="email" placeholder="seu@email.com" required data-i18n-attr="placeholder:form.placeholder" />
               <button type="submit">
-                Enviar
+                <span data-i18n="form.submit">Enviar</span>
                 <i data-lucide="send" aria-hidden="true"></i>
               </button>
             </div>
-            <p class="launch-note">Sem spam. Apenas atualizações importantes sobre o lançamento.</p>
+            <p class="launch-note" data-i18n="form.note">Sem spam. Apenas atualizações importantes sobre o lançamento.</p>
           </form>
         </div>
       </section>
@@ -734,11 +739,10 @@
 
     <div class="cookie-banner" data-cookie-banner role="dialog" aria-label="Aviso de cookies" hidden>
       <p>
-        Usamos apenas cookies <strong>essenciais</strong> para o funcionamento do site, conforme a LGPD.
-        Sem rastreamento, sem publicidade.
-        <a href="privacy.html">Saiba mais</a>.
+        <span data-i18n="cookie.text">Usamos apenas cookies <strong>essenciais</strong> para o funcionamento do site, conforme a LGPD. Sem rastreamento, sem publicidade.</span>
+        <a href="privacy.html" data-i18n="cookie.learn">Saiba mais</a>.
       </p>
-      <button type="button" class="cookie-accept" data-cookie-accept>Entendi</button>
+      <button type="button" class="cookie-accept" data-cookie-accept data-i18n="cookie.accept">Entendi</button>
     </div>
 
     <a class="back-home" href="#top" aria-label="Voltar para o início">

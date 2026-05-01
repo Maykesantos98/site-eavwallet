@@ -1,0 +1,38 @@
+name: Accessibility Audit
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  pa11y:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install pa11y-ci
+        run: npm install -g pa11y-ci@3
+
+      - name: Wait for GitHub Pages deploy
+        run: sleep 90
+
+      - name: Run pa11y-ci (WCAG 2.1 AA)
+        run: |
+          pa11y-ci \
+            --standard WCAG2AA \
+            --reporter cli \
+            --threshold 5 \
+            https://maykesantos98.github.io/site-eavwallet/ \
+            https://maykesantos98.github.io/site-eavwallet/privacy.html \
+            https://maykesantos98.github.io/site-eavwallet/terms.html \
+          || echo "A11y issues above threshold (non-blocking)"

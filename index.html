@@ -19,16 +19,16 @@
     <meta property="og:title" content="EAV Wallet | Carteira digital em pré-lançamento" />
     <meta property="og:description" content="Combine BRL, cripto, cartões, PIX e conversões em uma carteira digital pensada para uso diário. Entre na lista de espera." />
     <meta property="og:url" content="https://maykesantos98.github.io/site-eavwallet/" />
-    <meta property="og:image" content="https://maykesantos98.github.io/site-eavwallet/wallet/eav-token.png" />
-    <meta property="og:image:width" content="502" />
-    <meta property="og:image:height" content="494" />
-    <meta property="og:image:alt" content="Token EAV7" />
+    <meta property="og:image" content="https://maykesantos98.github.io/site-eavwallet/og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="EAV Wallet — pré-lançamento oficial" />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="EAV Wallet | Carteira digital em pré-lançamento" />
     <meta name="twitter:description" content="BRL, cripto, cartões, PIX e conversões em uma carteira digital. Entre na lista de espera." />
-    <meta name="twitter:image" content="https://maykesantos98.github.io/site-eavwallet/wallet/eav-token.png" />
+    <meta name="twitter:image" content="https://maykesantos98.github.io/site-eavwallet/og-image.jpg" />
 
     <!-- Icons & PWA -->
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
@@ -43,6 +43,10 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
+
+    <!-- Performance hints -->
+    <link rel="preload" as="image" href="wallet/1.jpeg" fetchpriority="high" />
+    <link rel="preconnect" href="https://formsubmit.co" />
 
     <!-- Structured Data -->
     <script type="application/ld+json">
@@ -79,6 +83,7 @@
     </script>
   </head>
   <body>
+    <a class="skip-link" href="#top">Pular para o conteúdo</a>
     <header class="site-header">
       <nav class="nav shell" aria-label="Navegação principal">
         <a class="brand" href="#top" aria-label="EAV Wallet">
@@ -719,13 +724,35 @@
           <a href="terms.html">Termos</a>
         </nav>
       </div>
+      <div class="shell footer-trust" aria-label="Compromissos de segurança e conformidade">
+        <span class="trust-tag"><i data-lucide="shield-check" aria-hidden="true"></i> HTTPS / TLS 1.3</span>
+        <span class="trust-tag"><i data-lucide="lock" aria-hidden="true"></i> LGPD</span>
+        <span class="trust-tag"><img src="wallet/icons/pix.svg" alt="" /> PIX ready</span>
+        <span class="trust-tag"><i data-lucide="fingerprint" aria-hidden="true"></i> Biometria prevista</span>
+      </div>
     </footer>
+
+    <div class="cookie-banner" data-cookie-banner role="dialog" aria-label="Aviso de cookies" hidden>
+      <p>
+        Usamos apenas cookies <strong>essenciais</strong> para o funcionamento do site, conforme a LGPD.
+        Sem rastreamento, sem publicidade.
+        <a href="privacy.html">Saiba mais</a>.
+      </p>
+      <button type="button" class="cookie-accept" data-cookie-accept>Entendi</button>
+    </div>
 
     <a class="back-home" href="#top" aria-label="Voltar para o início">
       <i data-lucide="arrow-up" aria-hidden="true"></i>
     </a>
 
-    <script src="lucide.min.js"></script>
-    <script src="script.js"></script>
+    <script src="lucide.min.js" defer></script>
+    <script src="script.js" defer></script>
+    <script>
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", () => {
+          navigator.serviceWorker.register("sw.js").catch(() => {});
+        });
+      }
+    </script>
   </body>
 </html>

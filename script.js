@@ -165,6 +165,20 @@ if (heroVisual && isFinePointer) {
   updateScrollTilt();
 }
 
+const cookieBanner = document.querySelector("[data-cookie-banner]");
+const cookieAccept = document.querySelector("[data-cookie-accept]");
+if (cookieBanner) {
+  if (!localStorage.getItem("eav-cookies-ack")) {
+    cookieBanner.hidden = false;
+    window.requestAnimationFrame(() => cookieBanner.classList.add("is-visible"));
+  }
+  cookieAccept?.addEventListener("click", () => {
+    localStorage.setItem("eav-cookies-ack", "1");
+    cookieBanner.classList.remove("is-visible");
+    window.setTimeout(() => (cookieBanner.hidden = true), 320);
+  });
+}
+
 if (new URLSearchParams(window.location.search).get("subscribed") === "1") {
   const note = document.createElement("div");
   note.className = "subscribed-toast";

@@ -1,0 +1,41 @@
+name: Lighthouse CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  lighthouse:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install Lighthouse CI
+        run: npm install -g @lhci/cli@0.13.x
+
+      - name: Wait for GitHub Pages deploy
+        run: sleep 90
+
+      - name: Run Lighthouse CI
+        run: |
+          lhci autorun \
+            --collect.url=https://maykesantos98.github.io/site-eavwallet/ \
+            --collect.numberOfRuns=2 \
+            --collect.settings.preset=desktop \
+            --upload.target=temporary-public-storage \
+            --assert.preset=lighthouse:no-pwa \
+            --assert.assertions.categories:performance.minScore=0.85 \
+            --assert.assertions.categories:accessibility.minScore=0.90 \
+            --assert.assertions.categories:best-practices.minScore=0.90 \
+            --assert.assertions.categories:seo.minScore=0.90 \
+          || echo "Lighthouse below thresholds (non-blocking)"

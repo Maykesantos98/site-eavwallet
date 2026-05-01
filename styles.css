@@ -50,8 +50,18 @@ input:focus-visible {
 }
 
 .shell {
-  width: min(1180px, calc(100% - 40px));
+  width: 100%;
+  max-width: 1180px;
+  padding: 0 20px;
   margin: 0 auto;
+}
+
+main,
+header,
+footer,
+section {
+  width: 100%;
+  max-width: 100%;
 }
 
 .site-header {
@@ -2494,7 +2504,7 @@ body.is-menu-open {
   .hero-grid,
   .security-grid,
   .download-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     gap: 56px;
   }
 
@@ -2512,7 +2522,7 @@ body.is-menu-open {
   .cards-grid,
   .traders-grid,
   .token-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     gap: 50px;
   }
 
@@ -2612,7 +2622,7 @@ body.is-menu-open {
 
 @media (max-width: 680px) {
   .shell {
-    width: min(100% - 28px, 1180px);
+    padding: 0 14px;
   }
 
   .nav {
@@ -2980,11 +2990,11 @@ body.is-menu-open {
   }
 
   .proof-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .feature-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .feature-card {

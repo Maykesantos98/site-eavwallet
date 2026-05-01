@@ -35,7 +35,18 @@
     "cookie.learn": "Saiba mais",
     "cookie.accept": "Entendi",
     "skip.content": "Pular para o conteúdo",
-    "subscribed": "Você está na lista! Vamos avisar assim que abrir."
+    "subscribed": "Você está na lista! Vamos avisar assim que abrir.",
+    "lang.disclaimer": "Telas do app exibidas em português brasileiro — versão internacional disponível no lançamento.",
+    "screen.home": "Tela inicial",
+    "screen.cards": "Cartões",
+    "screen.statement": "Extrato",
+    "screen.send": "Envio via PIX",
+    "screen.buy": "Compra de criptomoedas",
+    "screen.explore": "Explorar mercado",
+    "alt.hero.main": "Tela inicial da EAV Wallet",
+    "alt.hero.cards": "Tela de cartões da EAV Wallet",
+    "alt.hero.explore": "Tela Explorar mercado de criptomoedas da EAV Wallet",
+    "alt.trade": "Tela Trade BTC/USDT do app EAV Wallet com gráfico de candles, livro de ofertas e ativos"
   },
   "en": {
     "nav.product": "Product",
@@ -73,7 +84,18 @@
     "cookie.learn": "Learn more",
     "cookie.accept": "Got it",
     "skip.content": "Skip to content",
-    "subscribed": "You're on the list! We'll let you know as soon as we open."
+    "subscribed": "You're on the list! We'll let you know as soon as we open.",
+    "lang.disclaimer": "App screens shown in Brazilian Portuguese — international version available at launch.",
+    "screen.home": "Home screen",
+    "screen.cards": "Cards",
+    "screen.statement": "Statement",
+    "screen.send": "Instant payment",
+    "screen.buy": "Buy crypto",
+    "screen.explore": "Explore market",
+    "alt.hero.main": "EAV Wallet home screen",
+    "alt.hero.cards": "EAV Wallet cards screen",
+    "alt.hero.explore": "EAV Wallet crypto market explore screen",
+    "alt.trade": "EAV Wallet Trade BTC/USDT screen showing candle chart, order book and assets"
   },
   "es": {
     "nav.product": "Producto",
@@ -111,6 +133,17 @@
     "cookie.learn": "Saber más",
     "cookie.accept": "Entendido",
     "skip.content": "Saltar al contenido",
-    "subscribed": "¡Estás en la lista! Te avisaremos en cuanto abramos."
+    "subscribed": "¡Estás en la lista! Te avisaremos en cuanto abramos.",
+    "lang.disclaimer": "Pantallas del app mostradas en portugués brasileño — versión internacional disponible al lanzamiento.",
+    "screen.home": "Pantalla inicial",
+    "screen.cards": "Tarjetas",
+    "screen.statement": "Extracto",
+    "screen.send": "Pago instantáneo",
+    "screen.buy": "Comprar cripto",
+    "screen.explore": "Explorar mercado",
+    "alt.hero.main": "Pantalla inicial de EAV Wallet",
+    "alt.hero.cards": "Pantalla de tarjetas de EAV Wallet",
+    "alt.hero.explore": "Pantalla Explorar mercado cripto de EAV Wallet",
+    "alt.trade": "Pantalla Trade BTC/USDT de EAV Wallet con gráfico de velas, libro de órdenes y activos"
   }
 }

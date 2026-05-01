@@ -165,21 +165,16 @@ if (heroVisual && isFinePointer) {
   updateScrollTilt();
 }
 
-document.querySelector(".waitlist")?.addEventListener("submit", (event) => {
-  event.preventDefault();
-  const button = event.currentTarget.querySelector("button");
-  const original = button.innerHTML;
-  button.innerHTML = 'Recebido <i data-lucide="check" aria-hidden="true"></i>';
-  button.disabled = true;
-  if (window.lucide) {
-    window.lucide.createIcons();
-  }
-
+if (new URLSearchParams(window.location.search).get("subscribed") === "1") {
+  const note = document.createElement("div");
+  note.className = "subscribed-toast";
+  note.setAttribute("role", "status");
+  note.innerHTML = '<i data-lucide="check-circle"></i> Você está na lista! Vamos avisar assim que abrir.';
+  document.body.appendChild(note);
+  if (window.lucide) window.lucide.createIcons();
+  window.setTimeout(() => note.classList.add("is-visible"), 80);
   window.setTimeout(() => {
-    button.innerHTML = original;
-    button.disabled = false;
-    if (window.lucide) {
-      window.lucide.createIcons();
-    }
-  }, 2600);
-});
+    note.classList.remove("is-visible");
+    window.setTimeout(() => note.remove(), 400);
+  }, 4800);
+}

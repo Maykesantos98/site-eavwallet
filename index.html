@@ -3,12 +3,39 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0a0814" />
+    <meta name="color-scheme" content="dark" />
     <title>EAV Wallet | Carteira digital em pré-lançamento</title>
     <meta
       name="description"
       content="EAV Wallet está em pré-lançamento e combina saldo em real, cripto, cartões, PIX, conversão e extrato em uma experiência segura e profissional."
     />
+    <link rel="canonical" href="https://maykesantos98.github.io/site-eavwallet/" />
+
+    <!-- Open Graph (WhatsApp, LinkedIn, Facebook) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:site_name" content="EAV Wallet" />
+    <meta property="og:title" content="EAV Wallet | Carteira digital em pré-lançamento" />
+    <meta property="og:description" content="Combine BRL, cripto, cartões, PIX e conversões em uma carteira digital pensada para uso diário. Entre na lista de espera." />
+    <meta property="og:url" content="https://maykesantos98.github.io/site-eavwallet/" />
+    <meta property="og:image" content="https://maykesantos98.github.io/site-eavwallet/wallet/eav-token.png" />
+    <meta property="og:image:width" content="502" />
+    <meta property="og:image:height" content="494" />
+    <meta property="og:image:alt" content="Token EAV7" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="EAV Wallet | Carteira digital em pré-lançamento" />
+    <meta name="twitter:description" content="BRL, cripto, cartões, PIX e conversões em uma carteira digital. Entre na lista de espera." />
+    <meta name="twitter:image" content="https://maykesantos98.github.io/site-eavwallet/wallet/eav-token.png" />
+
+    <!-- Icons & PWA -->
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <link rel="apple-touch-icon" href="wallet/eav-token.png" />
+    <link rel="manifest" href="manifest.json" />
+
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -16,6 +43,40 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://maykesantos98.github.io/site-eavwallet/#organization",
+          "name": "EAV Wallet",
+          "url": "https://maykesantos98.github.io/site-eavwallet/",
+          "logo": "https://maykesantos98.github.io/site-eavwallet/wallet/logo.png",
+          "email": "contato@eav7.com",
+          "description": "Carteira digital com BRL, cripto, cartões e PIX em pré-lançamento."
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://maykesantos98.github.io/site-eavwallet/#website",
+          "url": "https://maykesantos98.github.io/site-eavwallet/",
+          "name": "EAV Wallet",
+          "inLanguage": "pt-BR",
+          "publisher": { "@id": "https://maykesantos98.github.io/site-eavwallet/#organization" }
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://maykesantos98.github.io/site-eavwallet/#webpage",
+          "url": "https://maykesantos98.github.io/site-eavwallet/",
+          "name": "EAV Wallet | Carteira digital em pré-lançamento",
+          "isPartOf": { "@id": "https://maykesantos98.github.io/site-eavwallet/#website" },
+          "inLanguage": "pt-BR"
+        }
+      ]
+    }
+    </script>
   </head>
   <body>
     <header class="site-header">
@@ -427,7 +488,7 @@
           <div class="traders-visual reveal" aria-label="Tela de trading BTC/USDT da EAV Wallet">
             <div class="trade-glow" aria-hidden="true"></div>
             <figure class="trade-phone">
-              <img src="wallet/Gemini_Generated_Image_ssoklmssoklmssok.png" alt="Tela Trade BTC/USDT do app EAV Wallet com gráfico de candles, livro de ofertas e ativos" width="1376" height="3106" loading="lazy" decoding="async" />
+              <img src="wallet/eav-trade.jpg" alt="Tela Trade BTC/USDT do app EAV Wallet com gráfico de candles, livro de ofertas e ativos" width="720" height="1625" loading="lazy" decoding="async" />
             </figure>
             <div class="trade-float trade-live" aria-label="Cotação ao vivo">
               <div class="trade-live-head">
@@ -600,7 +661,11 @@
               disponível.
             </p>
           </div>
-          <form class="waitlist reveal" action="#" method="post">
+          <form class="waitlist reveal" action="https://formsubmit.co/contato@eav7.com" method="POST">
+            <input type="hidden" name="_subject" value="Nova inscrição na lista de espera EAV Wallet" />
+            <input type="hidden" name="_captcha" value="false" />
+            <input type="hidden" name="_template" value="table" />
+            <input type="hidden" name="_next" value="https://maykesantos98.github.io/site-eavwallet/?subscribed=1" />
             <div class="store-buttons" aria-label="Lojas de aplicativos">
               <div class="store-button is-disabled" aria-disabled="true">
                 <img src="wallet/icons/apple.svg" alt="" />
@@ -649,8 +714,9 @@
         <nav class="footer-links" aria-label="Links institucionais">
           <a href="#seguranca">Segurança</a>
           <a href="#baixar">Lista de espera</a>
-          <a href="mailto:contato@eavwallet.com">Contato</a>
-          <span>Termos em breve</span>
+          <a href="mailto:contato@eav7.com">Contato</a>
+          <a href="privacy.html">Privacidade</a>
+          <a href="terms.html">Termos</a>
         </nav>
       </div>
     </footer>

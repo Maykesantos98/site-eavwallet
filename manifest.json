@@ -1,0 +1,26 @@
+{
+  "name": "EAV Wallet",
+  "short_name": "EAV Wallet",
+  "description": "Carteira digital com BRL, cripto, cartões e PIX em pré-lançamento.",
+  "start_url": "/site-eavwallet/",
+  "scope": "/site-eavwallet/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0a0814",
+  "theme_color": "#0a0814",
+  "lang": "pt-BR",
+  "icons": [
+    {
+      "src": "wallet/eav-token.png",
+      "sizes": "502x494",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "wallet/logo.png",
+      "sizes": "any",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

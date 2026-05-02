@@ -1226,12 +1226,17 @@ section {
 
 .cards-visual {
   position: relative;
-  min-height: 650px;
+  min-height: 520px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 0 40px;
 }
 
 .cards-art {
   position: absolute;
-  inset: 28px 24px 58px 0;
+  inset: 16px;
+  z-index: 0;
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 36px;
@@ -1298,11 +1303,11 @@ section {
 }
 
 .limit-panel {
-  left: 16px;
-  top: 50px;
+  left: 32px;
+  top: 38px;
   width: 178px;
   padding: 14px 16px;
-  z-index: 2;
+  z-index: 3;
 }
 
 .limit-panel span,
@@ -1336,8 +1341,8 @@ section {
 }
 
 .security-panel-mini {
-  right: 16px;
-  top: 50px;
+  right: 32px;
+  top: 38px;
   display: flex;
   align-items: center;
   gap: 10px;
@@ -1345,7 +1350,7 @@ section {
   color: #dfffee;
   font-weight: 900;
   font-size: 0.84rem;
-  z-index: 2;
+  z-index: 3;
 }
 
 .security-panel-mini svg {
@@ -1356,11 +1361,11 @@ section {
 
 /* ===== Premium EAV Wallet Visa card ===== */
 .credit-card {
-  position: absolute;
-  left: 50%;
-  bottom: 70px;
-  width: min(360px, calc(100% - 60px));
+  position: relative;
+  z-index: 2;
+  width: min(360px, calc(100% - 80px));
   aspect-ratio: 1.586 / 1;
+  margin: auto;
   padding: 22px 26px;
   border-radius: 22px;
   color: #fff;
@@ -1374,8 +1379,7 @@ section {
     0 12px 30px -10px rgba(59, 130, 246, 0.25),
     inset 0 1px 0 rgba(255, 255, 255, 0.08),
     inset 0 0 0 1px rgba(255, 255, 255, 0.04);
-  transform: translateX(-50%) rotate(-6deg);
-  transform-origin: center;
+  transform: rotate(-6deg);
   overflow: hidden;
   isolation: isolate;
   transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
@@ -1407,7 +1411,7 @@ section {
 }
 
 .credit-card:hover {
-  transform: translateX(-50%) rotate(-3deg) translateY(-8px);
+  transform: rotate(-3deg) translateY(-8px);
   box-shadow:
     0 40px 90px -25px rgba(0, 0, 0, 0.8),
     0 16px 40px -8px rgba(59, 130, 246, 0.3),
@@ -3535,16 +3539,14 @@ body.is-menu-open {
   }
 
   .credit-card {
-    left: 50%;
-    bottom: 50px;
     width: min(310px, 84vw);
-    transform: translateX(-50%) rotate(-3deg);
+    transform: rotate(-3deg);
     border-radius: 20px;
     padding: 18px 20px;
   }
 
   .credit-card:hover {
-    transform: translateX(-50%) rotate(0deg) translateY(-4px);
+    transform: rotate(0deg) translateY(-4px);
   }
 
   .cards-section::before {

@@ -78,6 +78,7 @@
     "cards.history.title": "Fatura e histórico",
     "cards.history.desc": "Acompanhe compras e movimentações do cartão.",
     "cards.preview.holder": "TITULAR",
+    "cards.preview.valid": "VÁLIDO ATÉ",
     "cards.limit.label": "Limite disponível",
     "cards.security.label": "Bloqueio instantâneo",
 
@@ -271,6 +272,7 @@
     "cards.history.title": "Statement & history",
     "cards.history.desc": "Track purchases and card movements.",
     "cards.preview.holder": "CARDHOLDER",
+    "cards.preview.valid": "VALID THRU",
     "cards.limit.label": "Available limit",
     "cards.security.label": "Instant lock",
 
@@ -464,6 +466,7 @@
     "cards.history.title": "Factura e historial",
     "cards.history.desc": "Sigue compras y movimientos de la tarjeta.",
     "cards.preview.holder": "TITULAR",
+    "cards.preview.valid": "VÁLIDO HASTA",
     "cards.limit.label": "Límite disponible",
     "cards.security.label": "Bloqueo instantáneo",
 

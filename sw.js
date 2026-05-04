@@ -1,4 +1,4 @@
-const CACHE = "eav-wallet-v2";
+const CACHE = "eav-wallet-v3";
 const ASSETS = [
   "./",
   "./index.html",
@@ -29,6 +29,9 @@ const ASSETS = [
   "./wallet/icons/visa.svg",
 ];
 
+// Network-first for code/markup, cache-first for static assets.
+const NETWORK_FIRST = /\.(html|css|js|json)$|\/$/i;
+
 self.addEventListener("install", (event) => {
   event.waitUntil(
     caches.open(CACHE).then((cache) =>
@@ -51,9 +54,10 @@ self.addEventListener("fetch", (event) => {
   const url = new URL(req.url);
   if (url.origin !== self.location.origin) return;
 
-  event.respondWith(
-    caches.match(req).then((cached) => {
-      const network = fetch(req)
+  // Network-first for HTML/CSS/JS/JSON — ensures users always get latest code.
+  if (NETWORK_FIRST.test(url.pathname)) {
+    event.respondWith(
+      fetch(req)
         .then((res) => {
           if (res.ok) {
             const copy = res.clone();
@@ -61,8 +65,22 @@ self.addEventListener("fetch", (event) => {
           }
           return res;
         })
-        .catch(() => cached);
-      return cached || network;
+        .catch(() => caches.match(req))
+    );
+    return;
+  }
+
+  // Cache-first for images, fonts and other static assets.
+  event.respondWith(
+    caches.match(req).then((cached) => {
+      if (cached) return cached;
+      return fetch(req).then((res) => {
+        if (res.ok) {
+          const copy = res.clone();
+          caches.open(CACHE).then((cache) => cache.put(req, copy));
+        }
+        return res;
+      });
     })
   );
 });

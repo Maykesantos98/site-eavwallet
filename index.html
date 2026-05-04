@@ -80,6 +80,71 @@
   <body>
     <a class="skip-link" href="#top" data-i18n="skip.content">Pular para o conteúdo</a>
     <header class="site-header">
+      <!-- Live ticker strip -->
+      <div class="ticker-strip" aria-hidden="true">
+        <div class="ticker-track">
+          <div class="ticker-item">
+            <img src="wallet/icons/bitcoin.svg" alt="" />
+            <span>BTC</span>
+            <strong>US$ 67.420,18</strong>
+            <em class="up">+2,34%</em>
+          </div>
+          <div class="ticker-item">
+            <img src="wallet/icons/ethereum.svg" alt="" />
+            <span>ETH</span>
+            <strong>US$ 2.840,50</strong>
+            <em class="up">+1,12%</em>
+          </div>
+          <div class="ticker-item">
+            <img src="wallet/icons/solana.svg" alt="" />
+            <span>SOL</span>
+            <strong>US$ 152,80</strong>
+            <em class="up">+5,72%</em>
+          </div>
+          <div class="ticker-item ticker-token">
+            <img src="wallet/eav-token.png" alt="" />
+            <span>EAV7</span>
+            <strong>Pré-venda</strong>
+            <em class="pulse"></em>
+          </div>
+          <div class="ticker-item">
+            <img src="wallet/icons/pix.svg" alt="" />
+            <span>PIX</span>
+            <strong>Em 2s</strong>
+          </div>
+          <div class="ticker-item">
+            <i data-lucide="trending-up"></i>
+            <span>Mercado</span>
+            <strong>+R$ 2,1B / 24h</strong>
+          </div>
+          <!-- duplicate for seamless infinite scroll -->
+          <div class="ticker-item" aria-hidden="true">
+            <img src="wallet/icons/bitcoin.svg" alt="" />
+            <span>BTC</span><strong>US$ 67.420,18</strong><em class="up">+2,34%</em>
+          </div>
+          <div class="ticker-item" aria-hidden="true">
+            <img src="wallet/icons/ethereum.svg" alt="" />
+            <span>ETH</span><strong>US$ 2.840,50</strong><em class="up">+1,12%</em>
+          </div>
+          <div class="ticker-item" aria-hidden="true">
+            <img src="wallet/icons/solana.svg" alt="" />
+            <span>SOL</span><strong>US$ 152,80</strong><em class="up">+5,72%</em>
+          </div>
+          <div class="ticker-item ticker-token" aria-hidden="true">
+            <img src="wallet/eav-token.png" alt="" />
+            <span>EAV7</span><strong>Pré-venda</strong><em class="pulse"></em>
+          </div>
+          <div class="ticker-item" aria-hidden="true">
+            <img src="wallet/icons/pix.svg" alt="" />
+            <span>PIX</span><strong>Em 2s</strong>
+          </div>
+          <div class="ticker-item" aria-hidden="true">
+            <i data-lucide="trending-up"></i>
+            <span>Mercado</span><strong>+R$ 2,1B / 24h</strong>
+          </div>
+        </div>
+      </div>
+
       <nav class="nav shell" aria-label="Navegação principal">
         <a class="brand" href="#top" aria-label="EAV Wallet">
           <img src="wallet/logo.png" alt="EAV Wallet" />
@@ -90,22 +155,67 @@
               <span data-i18n="nav.product">Produto</span>
               <i data-lucide="chevron-down" aria-hidden="true"></i>
             </button>
-            <div class="nav-dropdown">
-              <a href="#produto">
-                <i data-lucide="wallet-cards" aria-hidden="true"></i>
-                <span><strong data-i18n="nav.dropdown.wallet.title">Carteira</strong><small data-i18n="nav.dropdown.wallet.desc">BRL, cripto e ações rápidas</small></span>
-              </a>
-              <a href="#app">
-                <i data-lucide="smartphone" aria-hidden="true"></i>
-                <span><strong data-i18n="nav.dropdown.app.title">App mobile</strong><small data-i18n="nav.dropdown.app.desc">Telas reais da experiência</small></span>
-              </a>
-              <a href="#explorar">
-                <i data-lucide="search" aria-hidden="true"></i>
-                <span><strong data-i18n="nav.dropdown.explore.title">Explorar</strong><small data-i18n="nav.dropdown.explore.desc">Mercado cripto e ativos em alta</small></span>
-              </a>
-              <a href="#baixar">
-                <i data-lucide="download" aria-hidden="true"></i>
-                <span><strong data-i18n="nav.dropdown.waitlist.title">Lista de espera</strong><small data-i18n="nav.dropdown.waitlist.desc">Receba o acesso assim que abrir</small></span>
+            <div class="nav-dropdown nav-dropdown-mega">
+              <div class="nav-mega-cols">
+                <div class="nav-mega-col">
+                  <span class="nav-mega-label" data-i18n="nav.mega.wallet">CARTEIRA</span>
+                  <a href="#produto">
+                    <span class="nav-mega-icon"><i data-lucide="wallet-cards" aria-hidden="true"></i></span>
+                    <span class="nav-mega-text">
+                      <strong data-i18n="nav.dropdown.wallet.title">BRL + Cripto</strong>
+                      <small data-i18n="nav.dropdown.wallet.desc">Saldo unificado e ações rápidas</small>
+                    </span>
+                  </a>
+                  <a href="#cartoes">
+                    <span class="nav-mega-icon"><i data-lucide="credit-card" aria-hidden="true"></i></span>
+                    <span class="nav-mega-text">
+                      <strong data-i18n="nav.dropdown.cards.title">Cartões</strong>
+                      <small data-i18n="nav.dropdown.cards.desc">Limite, bloqueio e fatura</small>
+                    </span>
+                  </a>
+                  <a href="#app">
+                    <span class="nav-mega-icon"><i data-lucide="smartphone" aria-hidden="true"></i></span>
+                    <span class="nav-mega-text">
+                      <strong data-i18n="nav.dropdown.app.title">App mobile</strong>
+                      <small data-i18n="nav.dropdown.app.desc">iOS e Android</small>
+                    </span>
+                  </a>
+                </div>
+                <div class="nav-mega-col">
+                  <span class="nav-mega-label" data-i18n="nav.mega.market">MERCADO</span>
+                  <a href="#explorar">
+                    <span class="nav-mega-icon"><i data-lucide="search" aria-hidden="true"></i></span>
+                    <span class="nav-mega-text">
+                      <strong data-i18n="nav.dropdown.explore.title">Explorar</strong>
+                      <small data-i18n="nav.dropdown.explore.desc">BTC, ETH, SOL e tendências</small>
+                    </span>
+                  </a>
+                  <a href="#traders">
+                    <span class="nav-mega-icon"><i data-lucide="candlestick-chart" aria-hidden="true"></i></span>
+                    <span class="nav-mega-text">
+                      <strong data-i18n="nav.dropdown.traders.title">Trade</strong>
+                      <small data-i18n="nav.dropdown.traders.desc">Para traders</small>
+                    </span>
+                  </a>
+                  <a href="#produto">
+                    <span class="nav-mega-icon"><i data-lucide="repeat-2" aria-hidden="true"></i></span>
+                    <span class="nav-mega-text">
+                      <strong data-i18n="nav.dropdown.convert.title">Conversão</strong>
+                      <small data-i18n="nav.dropdown.convert.desc">Troque BRL e cripto</small>
+                    </span>
+                  </a>
+                </div>
+              </div>
+              <a class="nav-mega-feature" href="#token">
+                <span class="nav-mega-feature-glow" aria-hidden="true"></span>
+                <span class="nav-mega-feature-tag" data-i18n="nav.mega.featured">DESTAQUE</span>
+                <img src="wallet/eav-token.png" alt="" />
+                <strong>Token EAV7</strong>
+                <small data-i18n="nav.mega.token.desc">Moeda oficial do ecossistema, em pré-venda</small>
+                <span class="nav-mega-feature-cta">
+                  <span data-i18n="nav.mega.token.cta">Ver token</span>
+                  <i data-lucide="arrow-right" aria-hidden="true"></i>
+                </span>
               </a>
             </div>
           </div>
@@ -130,7 +240,7 @@
             </div>
           </div>
           <a href="#seguranca" data-i18n="nav.security">Segurança</a>
-          <a href="#token" data-i18n="nav.token">Token</a>
+          <a href="#token" class="nav-link-token" data-i18n="nav.token">Token</a>
           <a href="#traders" data-i18n="nav.traders">Traders</a>
           <a href="#app" data-i18n="nav.app">App</a>
         </div>
@@ -142,8 +252,8 @@
           </div>
           <a class="nav-login" href="#app" data-i18n="nav.demo">Ver demo</a>
           <a class="nav-cta" href="#baixar">
-            <span data-i18n="nav.cta">Entrar na lista</span>
-            <i data-lucide="arrow-up-right" aria-hidden="true"></i>
+            <i data-lucide="wallet" aria-hidden="true"></i>
+            <span data-i18n="nav.cta">Conectar carteira</span>
           </a>
           <button class="mobile-menu-button" type="button" aria-label="Abrir menu" aria-expanded="false" data-mobile-menu-button>
             <i data-lucide="menu" aria-hidden="true"></i>
@@ -277,27 +387,57 @@
         </div>
       </section>
 
-      <section class="proof-section" aria-label="Visão do produto">
-        <div class="shell proof-grid">
-          <div class="proof-item reveal">
-            <span data-i18n="proof.construction.tag">Em construção</span>
-            <strong data-i18n="proof.construction.title">BRL + cripto</strong>
-            <small data-i18n="proof.construction.desc">saldo, ativos e cartões em uma experiência única</small>
+      <section class="howto-section" aria-label="Como funciona">
+        <div class="howto-grid-bg" aria-hidden="true"></div>
+        <div class="shell">
+          <div class="section-heading centered reveal">
+            <span class="eyebrow"><i data-lucide="route" aria-hidden="true"></i><span data-i18n="howto.eyebrow">Como funciona</span></span>
+            <h2 data-i18n="howto.title">Do cadastro ao primeiro PIX em três passos.</h2>
           </div>
-          <div class="proof-item reveal">
-            <span data-i18n="proof.payments.tag">Pagamentos</span>
-            <strong data-i18n="proof.payments.title">PIX ready</strong>
-            <small data-i18n="proof.payments.desc">envios, recebimentos e extrato em tempo real</small>
-          </div>
-          <div class="proof-item reveal">
-            <span data-i18n="proof.card.tag">Cartão</span>
-            <strong data-i18n="proof.card.title">Limites ativos</strong>
-            <small data-i18n="proof.card.desc">bloqueio, segurança e gestão de uso previstos para o app</small>
-          </div>
-          <div class="proof-item reveal">
-            <span data-i18n="proof.market.tag">Mercado</span>
-            <strong data-i18n="proof.market.title">BTC ETH SOL</strong>
-            <small data-i18n="proof.market.desc">ativos populares destacados com leitura rápida</small>
+
+          <div class="howto-steps">
+            <div class="howto-line" aria-hidden="true">
+              <div class="howto-line-fill"></div>
+            </div>
+
+            <article class="howto-step reveal">
+              <div class="howto-step-num" aria-hidden="true">
+                <span>01</span>
+                <i data-lucide="user-plus" aria-hidden="true"></i>
+              </div>
+              <h3 data-i18n="howto.step1.title">Entre na lista</h3>
+              <p data-i18n="howto.step1.desc">Cadastre seu e-mail em segundos. Sem custo, sem cartão e sem compromisso.</p>
+              <span class="howto-step-meta">
+                <i data-lucide="clock" aria-hidden="true"></i>
+                <span data-i18n="howto.step1.meta">Leva ~30 segundos</span>
+              </span>
+            </article>
+
+            <article class="howto-step reveal">
+              <div class="howto-step-num" aria-hidden="true">
+                <span>02</span>
+                <i data-lucide="mail-check" aria-hidden="true"></i>
+              </div>
+              <h3 data-i18n="howto.step2.title">Receba o convite</h3>
+              <p data-i18n="howto.step2.desc">Você é avisado por e-mail quando o app entrar nas lojas e o seu acesso for liberado.</p>
+              <span class="howto-step-meta">
+                <i data-lucide="bell" aria-hidden="true"></i>
+                <span data-i18n="howto.step2.meta">Notificação prioritária</span>
+              </span>
+            </article>
+
+            <article class="howto-step reveal">
+              <div class="howto-step-num" aria-hidden="true">
+                <span>03</span>
+                <i data-lucide="wallet" aria-hidden="true"></i>
+              </div>
+              <h3 data-i18n="howto.step3.title">Use BRL e cripto</h3>
+              <p data-i18n="howto.step3.desc">PIX, conversões, cartão e ativos cripto na mesma carteira — tudo com segurança e em português.</p>
+              <span class="howto-step-meta">
+                <i data-lucide="shield-check" aria-hidden="true"></i>
+                <span data-i18n="howto.step3.meta">Pronto pra usar</span>
+              </span>
+            </article>
           </div>
         </div>
       </section>
@@ -310,22 +450,23 @@
           </div>
           <div class="feature-grid">
             <article class="feature-card reveal">
-              <img class="feature-icon" src="wallet/icons/pix.svg" alt="" />
+              <div class="feature-icon-wrap"><img src="wallet/icons/pix.svg" alt="" /></div>
               <h3 data-i18n="product.unified.title">Saldo unificado</h3>
               <p data-i18n="product.unified.desc">Visualize real, cripto e cartões em uma tela clara, com ações rápidas para enviar, receber, converter e depositar.</p>
             </article>
             <article class="feature-card reveal">
-              <img class="feature-icon" src="wallet/icons/bitcoin.svg" alt="" />
+              <div class="feature-icon-wrap"><img src="wallet/icons/bitcoin.svg" alt="" /></div>
               <h3 data-i18n="product.convert.title">Conversões simples</h3>
               <p data-i18n="product.convert.desc">Transforme BRL em ativos digitais e acompanhe cada operação no extrato completo.</p>
             </article>
             <article class="feature-card reveal">
-              <img class="feature-icon wide" src="wallet/icons/visa.svg" alt="" />
+              <div class="feature-icon-wrap"><img src="wallet/icons/visa.svg" alt="" /></div>
               <h3 data-i18n="product.card.title">Cartão integrado</h3>
               <p data-i18n="product.card.desc">Gerencie cartão, limite diário, limite mensal, bloqueio e controles de segurança sem sair da carteira.</p>
             </article>
             <article class="feature-card reveal" id="explorar">
-              <div class="mini-coin-row" aria-hidden="true">
+              <div class="feature-icon-wrap feature-icon-stack" aria-hidden="true">
+                <img src="wallet/icons/bitcoin.svg" alt="" />
                 <img src="wallet/icons/ethereum.svg" alt="" />
                 <img src="wallet/icons/solana.svg" alt="" />
               </div>
@@ -401,42 +542,66 @@
 
       <section id="token" class="token-section">
         <div class="token-aurora" aria-hidden="true"></div>
+        <div class="token-grid-bg" aria-hidden="true"></div>
         <div class="shell token-grid">
           <div class="token-copy reveal">
-            <span class="eyebrow token-eyebrow">
-              <i data-lucide="coins" aria-hidden="true"></i>
-              <span data-i18n="token.eyebrow">Token EAV7</span>
+            <span class="token-badge">
+              <span class="token-badge-dot" aria-hidden="true"></span>
+              <i data-lucide="shield-check" aria-hidden="true"></i>
+              <span data-i18n="token.badge">TOKEN OFICIAL · EAV7</span>
             </span>
-            <h2 data-i18n="token.title">A moeda do ecossistema EAV.</h2>
+            <h2>
+              <span data-i18n="token.title.pre">A moeda do</span>
+              <span class="token-title-grad" data-i18n="token.title.highlight">ecossistema EAV</span>.
+            </h2>
             <p data-i18n="token.lead">
               O token <strong>EAV7</strong> foi projetado para combinar regulação,
               inteligência artificial, descentralização e deflação automática —
               uma moeda direcionada para a comunidade e para o ecossistema de
               empresas EAV.
             </p>
+
+            <div class="token-ticker" aria-label="Status do token">
+              <div class="token-ticker-head">
+                <span class="pulse-dot pulse-gold" aria-hidden="true"></span>
+                <span data-i18n="token.ticker.status">PRÉ-VENDA</span>
+              </div>
+              <div class="token-ticker-body">
+                <strong>EAV7</strong>
+                <span>/ USDT</span>
+              </div>
+              <div class="token-ticker-meta">
+                <em>
+                  <i data-lucide="lock" aria-hidden="true"></i>
+                  <span data-i18n="token.ticker.access">Acesso restrito</span>
+                </em>
+              </div>
+            </div>
+
             <div class="token-stats">
               <div>
-                <i data-lucide="shield-check" aria-hidden="true"></i>
+                <span class="token-stat-icon"><i data-lucide="shield-check" aria-hidden="true"></i></span>
                 <strong data-i18n="token.stat.sec.title">SEC</strong>
                 <span data-i18n="token.stat.sec.desc">Fundo regulamentado</span>
               </div>
               <div>
-                <i data-lucide="cpu" aria-hidden="true"></i>
+                <span class="token-stat-icon"><i data-lucide="cpu" aria-hidden="true"></i></span>
                 <strong data-i18n="token.stat.chain.title">Smart Chain</strong>
                 <span data-i18n="token.stat.chain.desc">IA integrada</span>
               </div>
               <div>
-                <i data-lucide="trending-down" aria-hidden="true"></i>
+                <span class="token-stat-icon"><i data-lucide="trending-down" aria-hidden="true"></i></span>
                 <strong data-i18n="token.stat.deflation.title">Deflacionária</strong>
                 <span data-i18n="token.stat.deflation.desc">Escassez automática</span>
               </div>
             </div>
+
             <div class="token-actions">
-              <a class="button primary" href="#baixar">
+              <a class="button primary token-cta-gold" href="#baixar">
                 <i data-lucide="sparkles" aria-hidden="true"></i>
                 <span data-i18n="token.cta.primary">Acompanhar lançamento</span>
               </a>
-              <a class="button secondary token-secondary" href="#produto">
+              <a class="button outline" href="#produto">
                 <span data-i18n="token.cta.secondary">Saiba mais</span>
                 <i data-lucide="arrow-right" aria-hidden="true"></i>
               </a>
@@ -445,21 +610,54 @@
 
           <div class="token-card reveal" aria-label="Características do token EAV7">
             <div class="token-card-glow" aria-hidden="true"></div>
-            <div class="token-coin-wrap">
-              <div class="token-coin-halo" aria-hidden="true"></div>
-              <img class="token-coin" src="wallet/eav-token.png" alt="Moeda EAV7" width="502" height="494" loading="lazy" decoding="async" />
+
+            <div class="token-coin-stage">
+              <div class="token-ring-conic" aria-hidden="true"></div>
+              <div class="token-ring-dotted" aria-hidden="true"></div>
+              <div class="token-particles" aria-hidden="true">
+                <span style="--i:0"></span>
+                <span style="--i:1"></span>
+                <span style="--i:2"></span>
+                <span style="--i:3"></span>
+                <span style="--i:4"></span>
+                <span style="--i:5"></span>
+              </div>
+              <div class="token-coin-wrap">
+                <div class="token-coin-halo" aria-hidden="true"></div>
+                <img class="token-coin" src="wallet/eav-token.png" alt="Moeda EAV7" width="502" height="494" loading="lazy" decoding="async" />
+                <div class="token-coin-mirror" aria-hidden="true">
+                  <img src="wallet/eav-token.png" alt="" aria-hidden="true" />
+                </div>
+              </div>
+
+              <div class="token-float-chip token-chip-sec" aria-hidden="true">
+                <i data-lucide="shield-check"></i>
+                <span>SEC</span>
+              </div>
+              <div class="token-float-chip token-chip-ai" aria-hidden="true">
+                <i data-lucide="cpu"></i>
+                <span>AI</span>
+              </div>
+              <div class="token-float-chip token-chip-defl" aria-hidden="true">
+                <i data-lucide="flame"></i>
+                <span>−2.4%</span>
+              </div>
+            </div>
+
+            <div class="token-features-head">
+              <span data-i18n="token.features.label">Características</span>
             </div>
             <ul class="token-features">
-              <li><img src="wallet/icons/check-token.svg" alt="" width="30" height="30" /><span data-i18n="token.feat.sec">Fundo regulamentado (SEC)</span></li>
-              <li><img src="wallet/icons/check-token.svg" alt="" width="30" height="30" /><span data-i18n="token.feat.chain">Smart Chain (Inteligência Artificial)</span></li>
-              <li><img src="wallet/icons/check-token.svg" alt="" width="30" height="30" /><span data-i18n="token.feat.decentralized">100% descentralizada (Smart Contract)</span></li>
-              <li><img src="wallet/icons/check-token.svg" alt="" width="30" height="30" /><span data-i18n="token.feat.bias">Livre de erros ou vieses humanos</span></li>
-              <li><img src="wallet/icons/check-token.svg" alt="" width="30" height="30" /><span data-i18n="token.feat.community">Direcionada para sua comunidade</span></li>
-              <li><img src="wallet/icons/check-token.svg" alt="" width="30" height="30" /><span data-i18n="token.feat.ecosystem">Ecossistema de empresas</span></li>
-              <li><img src="wallet/icons/check-token.svg" alt="" width="30" height="30" /><span data-i18n="token.feat.deflation">Deflacionária (escassez automática)</span></li>
-              <li><img src="wallet/icons/check-token.svg" alt="" width="30" height="30" /><span data-i18n="token.feat.miners">Independente de mineradores</span></li>
-              <li><img src="wallet/icons/check-token.svg" alt="" width="30" height="30" /><span data-i18n="token.feat.sustainable">Sustentável</span></li>
-              <li><img src="wallet/icons/check-token.svg" alt="" width="30" height="30" /><span data-i18n="token.feat.bitcoin">Reflexão em Bitcoin</span></li>
+              <li><i data-lucide="check"></i><span data-i18n="token.feat.sec">Fundo regulamentado (SEC)</span></li>
+              <li><i data-lucide="check"></i><span data-i18n="token.feat.chain">Smart Chain (Inteligência Artificial)</span></li>
+              <li><i data-lucide="check"></i><span data-i18n="token.feat.decentralized">100% descentralizada (Smart Contract)</span></li>
+              <li><i data-lucide="check"></i><span data-i18n="token.feat.bias">Livre de erros ou vieses humanos</span></li>
+              <li><i data-lucide="check"></i><span data-i18n="token.feat.community">Direcionada para sua comunidade</span></li>
+              <li><i data-lucide="check"></i><span data-i18n="token.feat.ecosystem">Ecossistema de empresas</span></li>
+              <li><i data-lucide="check"></i><span data-i18n="token.feat.deflation">Deflacionária (escassez automática)</span></li>
+              <li><i data-lucide="check"></i><span data-i18n="token.feat.miners">Independente de mineradores</span></li>
+              <li><i data-lucide="check"></i><span data-i18n="token.feat.sustainable">Sustentável</span></li>
+              <li><i data-lucide="check"></i><span data-i18n="token.feat.bitcoin">Reflexão em Bitcoin</span></li>
             </ul>
           </div>
         </div>
@@ -500,34 +698,36 @@
             <figure class="trade-phone">
               <img src="wallet/eav-trade.jpg" alt="Tela Trade BTC/USDT do app EAV Wallet com gráfico de candles, livro de ofertas e ativos" width="720" height="1625" loading="lazy" decoding="async" data-i18n-attr="alt:alt.trade" />
             </figure>
-            <div class="trade-float trade-live" aria-label="Cotação ao vivo">
+
+            <!-- Floating UI mockups -->
+            <div class="trade-float trade-live" aria-label="Cotação Solana">
               <div class="trade-live-head">
                 <span class="pulse-dot" aria-hidden="true"></span>
-                AO VIVO
+                <span data-i18n="trade.live.label">AO VIVO</span>
               </div>
-              <strong>BTC / USDT</strong>
-              <small>US$ 68.420,17</small>
+              <strong>SOL / USDT</strong>
+              <small>US$ 152,80</small>
               <em>
                 <i data-lucide="trending-up" aria-hidden="true"></i>
-                +2,34% · 24h
+                +5,72% · 24h
               </em>
             </div>
-            <div class="trade-float trade-pct" aria-label="Tendência Solana">
+            <div class="trade-float trade-pct" aria-label="Tendência ETH">
               <div class="trade-spark" aria-hidden="true">
                 <svg viewBox="0 0 80 28" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M0,22 L10,18 L20,20 L30,12 L40,16 L50,8 L60,10 L70,4 L80,6" fill="none" stroke="#00f08a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                 </svg>
               </div>
-              <strong>SOL</strong>
-              <small>+5,72%</small>
+              <strong>ETH</strong>
+              <small>+1,12%</small>
             </div>
             <div class="trade-float trade-book" aria-hidden="true">
-              <span class="trade-book-label">Livro de ofertas</span>
+              <span class="trade-book-label" data-i18n="trade.book">Livro de ofertas</span>
               <ul>
-                <li><span>6.985,38</span><b>0,000</b></li>
-                <li class="ask"><span>6.832,30</span><b>0,000</b></li>
-                <li class="bid"><span>6.889,00</span><b>100,00</b></li>
-                <li class="bid"><span>8.985,28</span><b>50,00</b></li>
+                <li class="ask"><span>68.485,38</span><b>0,124</b></li>
+                <li class="ask"><span>68.432,30</span><b>0,082</b></li>
+                <li class="bid"><span>68.389,00</span><b>0,510</b></li>
+                <li class="bid"><span>68.285,28</span><b>0,250</b></li>
               </ul>
             </div>
           </div>
@@ -553,34 +753,63 @@
               <span data-i18n="assets.col.send">Enviar</span>
               <span data-i18n="assets.col.convert">Converter</span>
               <span data-i18n="assets.col.statement">Extrato</span>
+              <span data-i18n="assets.col.status">Status</span>
             </div>
-            <div class="matrix-row">
-              <span><img src="wallet/icons/pix.svg" alt="" /> BRL / PIX</span>
+            <div class="matrix-row matrix-asset-brl">
+              <span class="matrix-asset">
+                <span class="matrix-asset-icon"><img src="wallet/icons/pix.svg" alt="" /></span>
+                <span class="matrix-asset-name">
+                  <strong>BRL / PIX</strong>
+                  <small>Real brasileiro</small>
+                </span>
+              </span>
               <i data-lucide="check" aria-hidden="true"></i>
               <i data-lucide="check" aria-hidden="true"></i>
               <i data-lucide="check" aria-hidden="true"></i>
               <i data-lucide="check" aria-hidden="true"></i>
+              <span class="matrix-status matrix-status-live"><span class="pulse-dot"></span><span data-i18n="assets.status.live">Ativo</span></span>
             </div>
-            <div class="matrix-row">
-              <span><img src="wallet/icons/bitcoin.svg" alt="" /> Bitcoin</span>
+            <div class="matrix-row matrix-asset-btc">
+              <span class="matrix-asset">
+                <span class="matrix-asset-icon"><img src="wallet/icons/bitcoin.svg" alt="" /></span>
+                <span class="matrix-asset-name">
+                  <strong>Bitcoin</strong>
+                  <small>BTC</small>
+                </span>
+              </span>
               <i data-lucide="check" aria-hidden="true"></i>
               <i data-lucide="check" aria-hidden="true"></i>
               <i data-lucide="check" aria-hidden="true"></i>
               <i data-lucide="check" aria-hidden="true"></i>
+              <span class="matrix-status matrix-status-live"><span class="pulse-dot"></span><span data-i18n="assets.status.live">Ativo</span></span>
             </div>
-            <div class="matrix-row">
-              <span><img src="wallet/icons/ethereum.svg" alt="" /> Ethereum</span>
+            <div class="matrix-row matrix-asset-eth">
+              <span class="matrix-asset">
+                <span class="matrix-asset-icon"><img src="wallet/icons/ethereum.svg" alt="" /></span>
+                <span class="matrix-asset-name">
+                  <strong>Ethereum</strong>
+                  <small>ETH</small>
+                </span>
+              </span>
               <i data-lucide="check" aria-hidden="true"></i>
               <i data-lucide="check" aria-hidden="true"></i>
               <i data-lucide="check" aria-hidden="true"></i>
               <i data-lucide="check" aria-hidden="true"></i>
+              <span class="matrix-status matrix-status-live"><span class="pulse-dot"></span><span data-i18n="assets.status.live">Ativo</span></span>
             </div>
-            <div class="matrix-row">
-              <span><img src="wallet/icons/solana.svg" alt="" /> Solana</span>
+            <div class="matrix-row matrix-asset-sol">
+              <span class="matrix-asset">
+                <span class="matrix-asset-icon"><img src="wallet/icons/solana.svg" alt="" /></span>
+                <span class="matrix-asset-name">
+                  <strong>Solana</strong>
+                  <small>SOL</small>
+                </span>
+              </span>
               <i data-lucide="check" aria-hidden="true"></i>
               <i data-lucide="check" aria-hidden="true"></i>
               <i data-lucide="check" aria-hidden="true"></i>
               <i data-lucide="minus" aria-hidden="true"></i>
+              <span class="matrix-status matrix-status-soon"><span data-i18n="assets.status.soon">Em breve</span></span>
             </div>
           </div>
           </div>
@@ -642,79 +871,208 @@
 
       <section id="app" class="app-section">
         <div class="app-aurora" aria-hidden="true"></div>
+        <div class="app-grid-bg" aria-hidden="true"></div>
         <div class="shell">
           <div class="section-heading centered reveal">
-            <span class="eyebrow" data-i18n="app.eyebrow">Experiência do app</span>
+            <span class="eyebrow">
+              <i data-lucide="smartphone" aria-hidden="true"></i>
+              <span data-i18n="app.eyebrow">Experiência do app</span>
+            </span>
             <h2 data-i18n="app.title">Conheça as principais telas da EAV Wallet.</h2>
           </div>
           <p class="lang-disclaimer" data-i18n="lang.disclaimer">Telas do app exibidas em português brasileiro — versão internacional disponível no lançamento.</p>
-          <div class="screen-rail" aria-label="Galeria de telas da EAV Wallet">
-            <figure class="screen-card reveal">
-              <span class="screen-num" aria-hidden="true">01</span>
-              <div class="screen-frame">
-                <span class="screen-notch" aria-hidden="true"></span>
-                <img src="wallet/1.jpeg" alt="Tela inicial" width="709" height="1600" loading="lazy" decoding="async" data-i18n-attr="alt:alt.hero.main" />
+
+          <div class="app-showcase reveal" data-app-showcase>
+            <div class="app-showcase-stage">
+              <div class="app-stage-glow" aria-hidden="true"></div>
+              <div class="app-stage-rings" aria-hidden="true">
+                <span></span><span></span><span></span>
               </div>
-              <figcaption>
-                <strong data-i18n="screen.home">Tela inicial</strong>
-                <small data-i18n="screen.home.sub">Saldo, ações rápidas e ativos</small>
-              </figcaption>
-            </figure>
-            <figure class="screen-card reveal">
-              <span class="screen-num" aria-hidden="true">02</span>
-              <div class="screen-frame">
-                <span class="screen-notch" aria-hidden="true"></span>
-                <img src="wallet/8.jpeg" alt="Explorar mercado" width="709" height="1600" loading="lazy" decoding="async" data-i18n-attr="alt:alt.hero.explore" />
+
+              <!-- Per-screen contextual chips. Each group shows when its screen is active. -->
+              <div class="app-chip-group is-active" data-chip-for="0" aria-hidden="true">
+                <div class="app-stage-chip app-chip-tl">
+                  <span>Saldo</span>
+                  <strong>R$ 8.985,28</strong>
+                  <em>+3,27%</em>
+                </div>
+                <div class="app-stage-chip app-chip-br app-chip-pill">
+                  <img src="wallet/icons/pix.svg" alt="" />
+                  <span>PIX em 2s</span>
+                </div>
               </div>
-              <figcaption>
-                <strong data-i18n="screen.explore">Explorar mercado</strong>
-                <small data-i18n="screen.explore.sub">Destaques do dia e tendências</small>
-              </figcaption>
-            </figure>
-            <figure class="screen-card reveal">
-              <span class="screen-num" aria-hidden="true">03</span>
-              <div class="screen-frame">
-                <span class="screen-notch" aria-hidden="true"></span>
-                <img src="wallet/2.jpeg" alt="Cartões" width="709" height="1600" loading="lazy" decoding="async" data-i18n-attr="alt:alt.hero.cards" />
+              <div class="app-chip-group" data-chip-for="1" aria-hidden="true">
+                <div class="app-stage-chip app-chip-tl app-chip-pill">
+                  <i data-lucide="trending-up"></i>
+                  <span>Em alta</span>
+                </div>
+                <div class="app-stage-chip app-chip-br">
+                  <img src="wallet/icons/bitcoin.svg" alt="" />
+                  <strong>BTC</strong>
+                  <em>+2,34%</em>
+                </div>
               </div>
-              <figcaption>
-                <strong data-i18n="screen.cards">Cartões</strong>
-                <small data-i18n="screen.cards.sub">Limite, bloqueio e fatura</small>
-              </figcaption>
-            </figure>
-            <figure class="screen-card reveal">
-              <span class="screen-num" aria-hidden="true">04</span>
-              <div class="screen-frame">
-                <span class="screen-notch" aria-hidden="true"></span>
-                <img src="wallet/3.jpeg" alt="Extrato" width="709" height="1600" loading="lazy" decoding="async" />
+              <div class="app-chip-group" data-chip-for="2" aria-hidden="true">
+                <div class="app-stage-chip app-chip-tl">
+                  <span>Limite</span>
+                  <strong>R$ 6.000</strong>
+                  <em>68% disponível</em>
+                </div>
+                <div class="app-stage-chip app-chip-br app-chip-pill">
+                  <i data-lucide="lock"></i>
+                  <span>Bloqueio rápido</span>
+                </div>
               </div>
-              <figcaption>
-                <strong data-i18n="screen.statement">Extrato</strong>
-                <small data-i18n="screen.statement.sub">Histórico completo de transações</small>
-              </figcaption>
-            </figure>
-            <figure class="screen-card reveal">
-              <span class="screen-num" aria-hidden="true">05</span>
-              <div class="screen-frame">
-                <span class="screen-notch" aria-hidden="true"></span>
-                <img src="wallet/5.jpeg" alt="Envio via PIX" width="709" height="1600" loading="lazy" decoding="async" />
+              <div class="app-chip-group" data-chip-for="3" aria-hidden="true">
+                <div class="app-stage-chip app-chip-tl app-chip-pill">
+                  <i data-lucide="receipt-text"></i>
+                  <span>Histórico</span>
+                </div>
+                <div class="app-stage-chip app-chip-br">
+                  <span>Hoje</span>
+                  <strong>−R$ 248,00</strong>
+                  <em>3 transações</em>
+                </div>
               </div>
-              <figcaption>
-                <strong data-i18n="screen.send">Envio via PIX</strong>
-                <small data-i18n="screen.send.sub">Favoritos e teclado numérico</small>
-              </figcaption>
-            </figure>
-            <figure class="screen-card reveal">
-              <span class="screen-num" aria-hidden="true">06</span>
-              <div class="screen-frame">
-                <span class="screen-notch" aria-hidden="true"></span>
-                <img src="wallet/6.jpeg" alt="Compra de criptomoedas" width="709" height="1600" loading="lazy" decoding="async" />
+              <div class="app-chip-group" data-chip-for="4" aria-hidden="true">
+                <div class="app-stage-chip app-chip-tl">
+                  <span>Enviar via PIX</span>
+                  <strong>R$ 320,00</strong>
+                  <em>Maria S.</em>
+                </div>
+                <div class="app-stage-chip app-chip-br app-chip-pill">
+                  <img src="wallet/icons/pix.svg" alt="" />
+                  <span>Confirmado</span>
+                </div>
               </div>
-              <figcaption>
-                <strong data-i18n="screen.buy">Compra de criptomoedas</strong>
-                <small data-i18n="screen.buy.sub">Moedas e cripto em uma tela</small>
-              </figcaption>
-            </figure>
+              <div class="app-chip-group" data-chip-for="5" aria-hidden="true">
+                <div class="app-stage-chip app-chip-tl app-chip-pill">
+                  <i data-lucide="zap"></i>
+                  <span>Compra rápida</span>
+                </div>
+                <div class="app-stage-chip app-chip-br">
+                  <img src="wallet/icons/ethereum.svg" alt="" />
+                  <strong>ETH</strong>
+                  <em>R$ 250</em>
+                </div>
+              </div>
+
+              <div class="app-phone-device">
+                <span class="app-phone-button app-phone-power" aria-hidden="true"></span>
+                <span class="app-phone-button app-phone-vol-up" aria-hidden="true"></span>
+                <span class="app-phone-button app-phone-vol-down" aria-hidden="true"></span>
+                <div class="app-phone-screen">
+                  <div class="app-phone-notch" aria-hidden="true"></div>
+                  <div class="app-phone-stack" data-app-stack>
+                    <img class="app-slide is-active" data-app-slide="0" src="wallet/1.jpeg" alt="Tela inicial" width="709" height="1600" loading="lazy" decoding="async" />
+                    <img class="app-slide" data-app-slide="1" src="wallet/8.jpeg" alt="Explorar mercado" width="709" height="1600" loading="lazy" decoding="async" />
+                    <img class="app-slide" data-app-slide="2" src="wallet/2.jpeg" alt="Cartões" width="709" height="1600" loading="lazy" decoding="async" />
+                    <img class="app-slide" data-app-slide="3" src="wallet/3.jpeg" alt="Extrato" width="709" height="1600" loading="lazy" decoding="async" />
+                    <img class="app-slide" data-app-slide="4" src="wallet/5.jpeg" alt="Envio via PIX" width="709" height="1600" loading="lazy" decoding="async" />
+                    <img class="app-slide" data-app-slide="5" src="wallet/6.jpeg" alt="Compra de criptomoedas" width="709" height="1600" loading="lazy" decoding="async" />
+                  </div>
+                  <div class="app-phone-tap" aria-hidden="true"></div>
+                  <div class="app-phone-shine" aria-hidden="true"></div>
+                </div>
+                <div class="app-phone-mirror" aria-hidden="true"></div>
+              </div>
+            </div>
+
+            <div class="app-showcase-info">
+              <div class="app-info-head">
+                <div class="app-counter" aria-hidden="true">
+                  <span data-app-current>01</span>
+                  <em data-app-total>/ 06</em>
+                </div>
+                <div class="app-dots" role="tablist" aria-label="Indicadores">
+                  <button class="app-dot is-active" type="button" data-app-go="0" aria-label="Tela 1"></button>
+                  <button class="app-dot" type="button" data-app-go="1" aria-label="Tela 2"></button>
+                  <button class="app-dot" type="button" data-app-go="2" aria-label="Tela 3"></button>
+                  <button class="app-dot" type="button" data-app-go="3" aria-label="Tela 4"></button>
+                  <button class="app-dot" type="button" data-app-go="4" aria-label="Tela 5"></button>
+                  <button class="app-dot" type="button" data-app-go="5" aria-label="Tela 6"></button>
+                </div>
+              </div>
+
+              <div class="app-info-content">
+                <strong class="app-info-title" data-app-title>Tela inicial</strong>
+                <p class="app-info-desc" data-app-desc>Saldo, ações rápidas e ativos da carteira em uma visão clara e direta.</p>
+              </div>
+
+              <div class="app-progress" aria-hidden="true">
+                <div class="app-progress-bar" data-app-progress></div>
+              </div>
+
+              <div class="app-controls">
+                <button class="app-nav" type="button" data-app-prev aria-label="Tela anterior">
+                  <i data-lucide="arrow-left" aria-hidden="true"></i>
+                </button>
+                <button class="app-nav app-play" type="button" data-app-play aria-label="Pausar">
+                  <span class="app-play-icon app-icon-pause" aria-hidden="true">
+                    <span></span><span></span>
+                  </span>
+                  <span class="app-play-icon app-icon-play" aria-hidden="true"></span>
+                </button>
+                <button class="app-nav" type="button" data-app-next aria-label="Próxima tela">
+                  <i data-lucide="arrow-right" aria-hidden="true"></i>
+                </button>
+                <span class="app-auto-hint" data-app-hint>
+                  <span class="app-auto-hint-dot"></span>
+                  <span data-app-hint-text>Auto · 5s</span>
+                </span>
+              </div>
+
+              <div class="app-thumbs" role="tablist" aria-label="Galeria de telas">
+                <button class="app-thumb is-active" type="button" data-app-go="0" role="tab" aria-selected="true">
+                  <span class="app-thumb-num">01</span>
+                  <span class="app-thumb-frame"><img src="wallet/1.jpeg" alt="" loading="lazy" /></span>
+                  <span class="app-thumb-meta">
+                    <strong data-i18n="screen.home">Tela inicial</strong>
+                    <small data-i18n="screen.home.sub">Saldo, ações rápidas e ativos</small>
+                  </span>
+                </button>
+                <button class="app-thumb" type="button" data-app-go="1" role="tab" aria-selected="false">
+                  <span class="app-thumb-num">02</span>
+                  <span class="app-thumb-frame"><img src="wallet/8.jpeg" alt="" loading="lazy" /></span>
+                  <span class="app-thumb-meta">
+                    <strong data-i18n="screen.explore">Explorar mercado</strong>
+                    <small data-i18n="screen.explore.sub">Destaques do dia e tendências</small>
+                  </span>
+                </button>
+                <button class="app-thumb" type="button" data-app-go="2" role="tab" aria-selected="false">
+                  <span class="app-thumb-num">03</span>
+                  <span class="app-thumb-frame"><img src="wallet/2.jpeg" alt="" loading="lazy" /></span>
+                  <span class="app-thumb-meta">
+                    <strong data-i18n="screen.cards">Cartões</strong>
+                    <small data-i18n="screen.cards.sub">Limite, bloqueio e fatura</small>
+                  </span>
+                </button>
+                <button class="app-thumb" type="button" data-app-go="3" role="tab" aria-selected="false">
+                  <span class="app-thumb-num">04</span>
+                  <span class="app-thumb-frame"><img src="wallet/3.jpeg" alt="" loading="lazy" /></span>
+                  <span class="app-thumb-meta">
+                    <strong data-i18n="screen.statement">Extrato</strong>
+                    <small data-i18n="screen.statement.sub">Histórico completo de transações</small>
+                  </span>
+                </button>
+                <button class="app-thumb" type="button" data-app-go="4" role="tab" aria-selected="false">
+                  <span class="app-thumb-num">05</span>
+                  <span class="app-thumb-frame"><img src="wallet/5.jpeg" alt="" loading="lazy" /></span>
+                  <span class="app-thumb-meta">
+                    <strong data-i18n="screen.send">Envio via PIX</strong>
+                    <small data-i18n="screen.send.sub">Favoritos e teclado numérico</small>
+                  </span>
+                </button>
+                <button class="app-thumb" type="button" data-app-go="5" role="tab" aria-selected="false">
+                  <span class="app-thumb-num">06</span>
+                  <span class="app-thumb-frame"><img src="wallet/6.jpeg" alt="" loading="lazy" /></span>
+                  <span class="app-thumb-meta">
+                    <strong data-i18n="screen.buy">Compra de criptomoedas</strong>
+                    <small data-i18n="screen.buy.sub">Moedas e cripto em uma tela</small>
+                  </span>
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -778,24 +1136,80 @@
     </main>
 
     <footer class="footer">
-      <div class="shell footer-inner">
-        <div class="footer-brand">
-          <img src="wallet/logo.png" alt="EAV Wallet" />
-          <span data-i18n="footer.copy">© 2026 EAV Wallet. Projeto em pré-lançamento.</span>
+      <div class="shell footer-grid">
+        <div class="footer-brand-col">
+          <a class="footer-logo" href="#top" aria-label="EAV Wallet">
+            <img src="wallet/logo.png" alt="EAV Wallet" />
+          </a>
+          <p class="footer-about" data-i18n="footer.about">Carteira digital com BRL, cripto, cartões e PIX em pré-lançamento. Plataforma EAV.</p>
+          <div class="footer-newsletter">
+            <span class="footer-col-label" data-i18n="footer.newsletter.label">Newsletter</span>
+            <form class="footer-newsletter-form" action="https://formsubmit.co/contato@eav7.com" method="POST" aria-label="Inscrição newsletter">
+              <input type="hidden" name="_subject" value="Newsletter EAV Wallet" />
+              <input type="hidden" name="_captcha" value="false" />
+              <input type="hidden" name="_next" value="https://maykesantos98.github.io/site-eavwallet/?subscribed=1" />
+              <input type="email" name="email" placeholder="seu@email.com" required data-i18n-attr="placeholder:form.placeholder" />
+              <button type="submit" aria-label="Inscrever">
+                <i data-lucide="arrow-right" aria-hidden="true"></i>
+              </button>
+            </form>
+          </div>
+          <div class="footer-socials" aria-label="Redes sociais">
+            <a href="mailto:contato@eav7.com" aria-label="E-mail"><i data-lucide="mail" aria-hidden="true"></i></a>
+            <a href="#" aria-label="Twitter / X"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+            <a href="#" aria-label="Instagram"><i data-lucide="instagram" aria-hidden="true"></i></a>
+            <a href="#" aria-label="LinkedIn"><i data-lucide="linkedin" aria-hidden="true"></i></a>
+            <a href="#" aria-label="GitHub"><i data-lucide="github" aria-hidden="true"></i></a>
+          </div>
         </div>
-        <nav class="footer-links" aria-label="Links institucionais">
-          <a href="#seguranca" data-i18n="footer.security">Segurança</a>
-          <a href="#baixar" data-i18n="footer.waitlist">Lista de espera</a>
-          <a href="mailto:contato@eav7.com" data-i18n="footer.contact">Contato</a>
-          <a href="privacy.html" data-i18n="footer.privacy">Privacidade</a>
-          <a href="terms.html" data-i18n="footer.terms">Termos</a>
-        </nav>
+
+        <div class="footer-col">
+          <span class="footer-col-label" data-i18n="footer.col.product">Produto</span>
+          <a href="#produto" data-i18n="footer.link.wallet">Carteira</a>
+          <a href="#cartoes" data-i18n="footer.link.cards">Cartões</a>
+          <a href="#explorar" data-i18n="footer.link.explore">Explorar mercado</a>
+          <a href="#traders" data-i18n="footer.link.traders">Para traders</a>
+          <a href="#app" data-i18n="footer.link.app">App mobile</a>
+        </div>
+
+        <div class="footer-col">
+          <span class="footer-col-label" data-i18n="footer.col.resources">Recursos</span>
+          <a href="#token" data-i18n="footer.link.token">Token EAV7 <span class="footer-badge">Novo</span></a>
+          <a href="#seguranca" data-i18n="footer.link.security">Segurança</a>
+          <a href="#baixar" data-i18n="footer.link.waitlist">Lista de espera</a>
+          <a href="#produto" data-i18n="footer.link.convert">Conversão BRL ↔ Cripto</a>
+        </div>
+
+        <div class="footer-col">
+          <span class="footer-col-label" data-i18n="footer.col.company">Empresa</span>
+          <a href="https://eav7.com" target="_blank" rel="noopener" data-i18n="footer.link.about">Sobre a EAV</a>
+          <a href="mailto:contato@eav7.com" data-i18n="footer.link.contact">Contato</a>
+          <a href="mailto:imprensa@eav7.com" data-i18n="footer.link.press">Imprensa</a>
+          <a href="mailto:contato@eav7.com" data-i18n="footer.link.careers">Carreiras</a>
+        </div>
+
+        <div class="footer-col">
+          <span class="footer-col-label" data-i18n="footer.col.legal">Legal</span>
+          <a href="privacy.html" data-i18n="footer.link.privacy">Privacidade</a>
+          <a href="terms.html" data-i18n="footer.link.terms">Termos de uso</a>
+          <a href="privacy.html#cookies" data-i18n="footer.link.cookies">Cookies</a>
+          <a href="privacy.html#lgpd" data-i18n="footer.link.lgpd">LGPD</a>
+        </div>
       </div>
+
       <div class="shell footer-trust" aria-label="Compromissos de segurança e conformidade">
         <span class="trust-tag"><i data-lucide="shield-check" aria-hidden="true"></i> <span data-i18n="footer.trust.https">HTTPS / TLS 1.3</span></span>
         <span class="trust-tag"><i data-lucide="lock" aria-hidden="true"></i> <span data-i18n="footer.trust.lgpd">LGPD</span></span>
         <span class="trust-tag"><img src="wallet/icons/pix.svg" alt="" /> <span data-i18n="footer.trust.pix">PIX ready</span></span>
         <span class="trust-tag"><i data-lucide="fingerprint" aria-hidden="true"></i> <span data-i18n="footer.trust.bio">Biometria prevista</span></span>
+        <span class="trust-tag"><i data-lucide="globe" aria-hidden="true"></i> <span>PT · EN · ES</span></span>
+      </div>
+
+      <div class="shell footer-bottom">
+        <span class="footer-copy" data-i18n="footer.copy">© 2026 EAV Wallet. Projeto em pré-lançamento.</span>
+        <div class="footer-bottom-meta">
+          <span data-i18n="footer.bottom.made">Feito com cuidado em São Paulo · Brasil 🇧🇷</span>
+        </div>
       </div>
     </footer>
 

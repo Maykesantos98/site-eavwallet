@@ -823,7 +823,14 @@ p { margin: 0; color: var(--body); line-height: 1.5; }
   transition: background var(--duration-fast) var(--ease-out);
 }
 .mobile-section a:hover { background: var(--surface-overlay); }
-.mobile-section a i { width: 20px; height: 20px; color: var(--accent); flex-shrink: 0; }
+.mobile-section a i,
+.mobile-section a svg {
+  width: 20px;
+  height: 20px;
+  color: var(--accent);
+  stroke: var(--accent);
+  flex-shrink: 0;
+}
 .mobile-section a span { display: flex; flex-direction: column; gap: 2px; }
 .mobile-section a strong { font-size: 14px; font-weight: 600; }
 .mobile-section a small { font-size: 12px; color: var(--muted); }
@@ -840,7 +847,7 @@ p { margin: 0; color: var(--body); line-height: 1.5; }
   font-size: 15px;
   font-weight: 600;
 }
-.mobile-cta i { width: 16px; height: 16px; }
+.mobile-cta i, .mobile-cta svg { width: 16px; height: 16px; }
 .lang-switch-mobile { display: none; }
 
 body.is-menu-open { overflow: hidden; }
@@ -3568,25 +3575,33 @@ html:not([lang^="pt"]) .lang-disclaimer { display: block; }
   .hero-copy h1 { font-size: clamp(34px, 9vw, 44px); }
   h2 { font-size: clamp(28px, 7vw, 36px); }
 
-  /* Hero — simplify phone stack and floating cards */
+  /* Hero — portrait container that fits the phone-main without overflow */
   .hero { padding-block: clamp(40px, 8vw, 64px); }
-  .hero-visual { aspect-ratio: 1 / 1.15; max-width: 380px; }
-  .phone-side { display: none; }
-  .phone-main { width: 70%; }
-  .balance-card {
-    top: 6%; left: 0;
-    min-width: 150px;
-    padding: 10px 14px;
+  .hero-visual {
+    aspect-ratio: 7 / 12;
+    max-width: 280px;
+    width: 100%;
   }
-  .balance-card strong { font-size: 16px; }
+  .phone-side { display: none; }
+  .coin-orbit { display: none; }
+  .phone-main { width: 70%; }
+  .floating-card { animation: none; transform: none !important; }
+  .balance-card {
+    top: 3%; left: 0;
+    min-width: 140px;
+    padding: 9px 12px;
+    z-index: 5;
+  }
+  .balance-card strong { font-size: 15px; }
   .balance-card span { font-size: 10px; }
   .balance-card small { font-size: 11px; }
-  .pix-card { bottom: 14%; right: 0; padding: 10px 14px; }
+  .pix-card {
+    bottom: 4%; right: 0;
+    padding: 9px 12px;
+    z-index: 5;
+  }
+  .pix-card img { width: 20px; height: 20px; }
   .pix-card span { font-size: 12px; }
-  .coin { width: 32px; height: 32px; padding: 5px; }
-  .coin.btc { left: -2%; top: 48%; }
-  .coin.eth { right: 0; top: 4%; }
-  .coin.sol { left: 8%; bottom: 2%; }
   .official-strip { gap: 10px 14px; font-size: 12px; }
   .trust-row { grid-template-columns: 1fr 1fr; gap: 10px; padding: 14px 0 0; }
   .trust-row strong { font-size: 14px; }
@@ -3717,11 +3732,15 @@ html:not([lang^="pt"]) .lang-disclaimer { display: block; }
 
   .trust-row { grid-template-columns: 1fr; gap: 6px; }
 
-  .hero-visual { aspect-ratio: 1 / 1.05; max-width: 320px; }
-  .balance-card { padding: 8px 12px; min-width: 130px; }
-  .balance-card strong { font-size: 14px; }
-  .pix-card { padding: 8px 12px; }
-  .pix-card img { width: 20px; height: 20px; }
+  .hero-visual { max-width: 240px; }
+  .phone-main { width: 72%; }
+  .balance-card { padding: 7px 11px; min-width: 124px; }
+  .balance-card strong { font-size: 13px; }
+  .balance-card span { font-size: 9px; }
+  .balance-card small { font-size: 10px; }
+  .pix-card { padding: 7px 11px; }
+  .pix-card img { width: 18px; height: 18px; }
+  .pix-card span { font-size: 11px; }
 
   /* Eyebrow + section heading */
   .eyebrow { padding: 5px 10px; font-size: 11px; }
